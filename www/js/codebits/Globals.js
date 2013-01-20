@@ -1,0 +1,19 @@
+Codebits.Globals={
+	BASE_URL:'http://codebits.rcerqueira.com/',
+	DEBUG: true,
+	ROUTES:{
+		home:'#/'
+	},
+	SERVICES:{
+		caller:'php/servicecalls.php',
+		token:'php/gettoken.php',
+		/*users:'php/getusers.php',//*/users:'https://services.sapo.pt/Codebits/users',
+		/*user:'php/getuser.php',/*/user:'https://services.sapo.pt/Codebits/user/',
+		badges:'https://services.sapo.pt/Codebits/listbadges',
+		friends:'https://services.sapo.pt/Codebits/foaf/'
+	},
+	token:'',
+	users:null,
+	usersDetailed:[],
+	badges:null	
+};

@@ -1,0 +1,141 @@
+<article id="userdetail">
+	<a class="back float right" href="#/">Back to the wall</a>
+	<br />
+
+	<div class="float left">
+		<img src="<%=userdata.avatar%>?s=200" title="<%=userdata.nick%>" alt="<%=userdata.nick%>" />
+	</div>
+
+	<div class="float left">
+		<h1>
+			Name:
+			<strong><%=userdata.name%></strong>
+		</h1>
+
+		<h2>
+			Nickname:
+			<strong><%=userdata.nick%></strong>
+		</h2>
+		
+		<p>
+			<% if(userdata.status == 'accepted'){ %>
+				accepted for codebits
+			<% }else{ %>
+				not accepted for codebits
+			<% } %>
+		</p>
+	</div>
+	
+	<br class="clearfix" />
+
+	<h3>
+		Karma Points:
+	</h3>
+
+	<p>
+		<%=userdata.karma%>
+	</p>
+
+	<h3>
+		Bio:
+	</h3>
+
+	<p>
+		<%=userdata.bio%>
+	</p>
+	
+	<h3>
+		Blog:
+	</h3>
+
+	<p>
+		<% if(userdata.blog == ''){ %>
+			N / A
+		<% }else{ %>
+			<a href="<%=userdata.blog%>" target="_blank"><%=userdata.blog%></a>
+		<% } %>
+	</p>
+
+	<h3>
+		Code Repository:
+	</h3>
+
+	<p>
+		<% if(userdata.coderep == ''){ %>
+			N / A
+		<% }else{ %>
+			<a href="<%=userdata.coderep%>" target="_blank"><%=userdata.coderep%></a>
+		<% } %>
+	</p>
+
+	<h3>
+		Twitter
+	</h3>
+
+	<p>
+		<% if(userdata.coderep == ''){ %>
+			N / A
+		<% }else{ %>
+			<a href="http://www.twitter.com/<%=userdata.twitter%>" target="_blank"><%=userdata.twitter%></a>
+		<% } %>
+	</p>
+
+	<h3>
+		Badges
+	</h3>
+
+	<ul>
+		<% if(userdata.badges.length==0){ %>
+			N / A
+		<% } %>
+
+		<% 
+		_.each(userdata.badges, function(badge) { 
+			_badge = _.find(Codebits.Globals.badges, function(context){ 
+				return context.id == badge;
+			});
+
+			if(_badge){
+		%>
+			<li>
+				<img src="<%=_badge.img%>" alt="<%=_badge.title%>" title="<%=_badge.title%>" />
+				
+			</li>
+		<% 
+			}
+		}); 
+		%>
+	</ul>
+	
+	<h3>
+		Skills
+	</h3>
+
+	<ul class="skills">
+		<% if(userdata.skills.length == 0){ %>
+			N / A
+		<% }else{ %>
+			<% _.each(userdata.skills, function(skills) { %>
+				<li>
+					<%=skills%>
+				</li>
+			<% }); %>
+		<% } %>
+	</ul>
+
+	<h3>
+		Friends
+	</h3>
+
+	<ul class="friends">
+		<% if(userdata.friends.length==0){ %>
+			N / A
+		<% } %>
+
+		<% _.each(userdata.friends, function(friend) { %>
+			<li>
+				<a href="#/user/<%=friend.id%>"><img src="<%=friend.avatar%>?s=40" title="<%=friend.name%>" alt="<%=friend.name%>"></a>
+			</li>
+		<% }); %>
+	</ul>
+</article>
