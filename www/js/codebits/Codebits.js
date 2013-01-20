@@ -32,7 +32,7 @@ var Codebits = {
 		}
 
 		//$.getJSON(Codebits.Globals.SERVICES.token,null, _callback);
-		$.getJSON('https://services.sapo.pt/Codebits/gettoken?user=r0ckf3l3r@gmail.com&password=ricardomccerqueira&callback=?',null, _callback);
+		$.getJSON('https://services.sapo.pt/Codebits/gettoken?user=ricardomccerqueira@gmail.com&password=SRqrkBEJ&callback=?',null, _callback);
 	},
 
 	gotToken:function(data){
